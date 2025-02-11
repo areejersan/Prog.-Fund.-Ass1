@@ -3,6 +3,7 @@ import enum
 class Type(enum.Enum):
     Economy = "Economy"
     Business = "Business"
+    FirstClass = "FirstClass"
 
 class Ticket:
     def __init__(self, ID, ticket_type, price, seat, window):
