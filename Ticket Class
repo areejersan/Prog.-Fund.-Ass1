@@ -1,0 +1,67 @@
+import enum
+
+class Type(enum.Enum):
+    Economy = "Economy"
+    Business = "Business"
+
+class Ticket:
+    def __init__(self, ID, ticket_type, price, seat, window):
+        self.__ID = ID
+        self.__type = ticket_type
+        self.__price = price
+        self.__seat = seat
+        self.__window = window
+
+    # Setter and Getter for ID
+    def setID(self, ID):
+        self.__ID = ID
+
+    def getID(self):
+        return self.__ID
+
+    # Setter and Getter for Type
+    def setType(self, ticket_type):
+        self.__type = ticket_type
+
+    def getType(self):
+        return self.__type
+
+    # Setter and Getter for Price
+    def setPrice(self, price):
+        self.__price = price
+
+    def getPrice(self):
+        return self.__price
+
+    # Setter and Getter for Seat
+    def setSeat(self, seat):
+        self.__seat = seat
+
+    def getSeat(self):
+        return self.__seat
+
+    # Setter and Getter for Window
+    def setWindow(self, window):
+        self.__window = window
+
+    def getWindow(self):
+        return self.__window
+
+    # Method to apply discount
+    def applyDiscount(self, discountPercentage):
+        self.__price -= discountPercentage * self.__price
+
+
+# Example usage without defaults
+ticket = Ticket("T123", Type.Business, 500.0, "15A", True)
+
+# Display ticket details
+print(f"ID: {ticket.getID()}")
+print(f"Type: {ticket.getType().name}")
+print(f"Price: ${ticket.getPrice():.2f}")
+print(f"Seat: {ticket.getSeat()}")
+print(f"Window: {ticket.getWindow()}")
+
+# Apply a discount
+ticket.applyDiscount(0.1)  # 10% discount
+print(f"Price after discount: ${ticket.getPrice():.2f}")
